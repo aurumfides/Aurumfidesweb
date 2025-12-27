@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Aurum Fides (AF) — a rule-driven DeFi architecture: Vault, Swap, Token Launch, and LoC (Letters of Credit)." />
+
+  <title>Aurum Fides</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Aurum Fides Home">
+        <span class="brandMark">AF</span>
+        <span class="brandText">Aurum Fides</span>
+      </a>
+
+      <nav class="menu" aria-label="Primary">
+        <a href="#architecture">Architecture</a>
+        <a href="#modules">Modules</a>
+        <a href="#loc">LoC</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn">Contact</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap heroGrid">
+        <div>
+          <p class="eyebrow">RULES, NOT PEOPLE</p>
+          <h1 class="h1">A system where value is earned, stored, and released by immutable rules.</h1>
+          <p class="lead">
+            Aurum Fides (AF) is a vault-centric DeFi architecture designed for resilience:
+            non-custodial, deterministic flows, and fail-soft mechanics.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="#architecture">Explore Architecture</a>
+            <a class="btn ghost" href="#contact">Get Updates</a>
+          </div>
+
+          <div class="pillRow">
+            <div class="pill">Non-custodial</div>
+            <div class="pill">Immutable routing</div>
+            <div class="pill">Fail-soft issuance</div>
+            <div class="pill">No promises</div>
+          </div>
+        </div>
+
+        <div class="heroCard">
+          <div class="cardTop">
+            <div class="tag">Status</div>
+            <div class="statusDot" aria-hidden="true"></div>
+            <div class="tag">Building v1</div>
+          </div>
+
+          <div class="metricGrid">
+            <div class="metric">
+              <div class="k">Vault routing</div>
+              <div class="v">100%</div>
+              <div class="s">All protocol revenues route to the Vault.</div>
+            </div>
+            <div class="metric">
+              <div class="k">AF sell tax</div>
+              <div class="v">5%</div>
+              <div class="s">Sell-side only, routed to the Vault.</div>
+            </div>
+            <div class="metric">
+              <div class="k">LoC trade fee</div>
+              <div class="v">1%</div>
+              <div class="s">Paid in AF, routed to the Vault.</div>
+            </div>
+            <div class="metric">
+              <div class="k">LP target band</div>
+              <div class="v">10–20%</div>
+              <div class="s">AI-regulated, target ~15% of MC.</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <p class="small">
+            This site is informational only. Aurum Fides is not a bank, not a stablecoin,
+            and does not provide financial advice.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section class="section" id="architecture">
+      <div class="wrap">
+        <h2 class="h2">Architecture</h2>
+        <p class="muted">
+          The core invariant: <strong>all revenues route to the Vault</strong> and are managed via
+          deterministic zone rules. No admin drains. No governance rerouting of funds.
+        </p>
+
+        <div class="grid3">
+          <div class="card">
+            <h3>Zone 1 — LP Regulation</h3>
+            <p>
+              The Vault maintains DEX health by keeping LP within a target band (10–20% of market cap,
+              target ~15%). Regulation is event-driven and bounded.
+            </p>
+            <ul class="list">
+              <li>Core LP is Vault-owned and permanently locked</li>
+              <li>Protection against thin liquidity + extreme slippage</li>
+              <li>Bounded actions (no runaway buy/sell loops)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Zone 2 — LoC Redemption Rails</h3>
+            <p>
+              Dedicated liquidity rails for LoC redemptions: Redeem Buffer + Short-term pool.
+              This zone is reserved for redemption obligations and cannot be repurposed.
+            </p>
+            <ul class="list">
+              <li>Queue + throttle during stress (fail-soft)</li>
+              <li>No forced liquidation of long-term holdings</li>
+              <li>Predictable maturity buckets</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Zone 3 — Long-term Vault</h3>
+            <p>
+              Surplus only (after LP + Zone 2 funding) may be allocated to conservative long-term strategies.
+              This zone is never used for redemptions.
+            </p>
+            <ul class="list">
+              <li>Conservative strategy allowlist</li>
+              <li>No leverage policy (baseline)</li>
+              <li>Fails closed if strategies are unavailable</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULES -->
+    <section class="section" id="modules">
+      <div class="wrap">
+        <h2 class="h2">Modules</h2>
+        <p class="muted">Aurum Fides is built as composable modules with strict invariants.</p>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Wallet</h3>
+            <p>Non-custodial wallet with vault dashboard + LoC portfolio view.</p>
+            <div class="badgeRow">
+              <span class="badge">Mobile</span>
+              <span class="badge">Desktop</span>
+              <span class="badge">Ledger Connect</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Swap (DEX)</h3>
+            <p>Vault-managed liquidity targeting competitive routing + stable execution.</p>
+            <div class="badgeRow">
+              <span class="badge">Low-fee</span>
+              <span class="badge">LP-regulated</span>
+              <span class="badge">Vault-owned core LP</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Token Launcher</h3>
+            <p>
+              Launch tokens with required AF-paired LP and time-locked LP options (6/12/24 months).
+              A pro-ecosystem tool designed to prevent rug mechanics.
+            </p>
+            <div class="badgeRow">
+              <span class="badge">LP Lock</span>
+              <span class="badge">AF Pair</span>
+              <span class="badge">Anti-rug rails</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Consilium Proposita</h3>
+            <p>Optional messaging layer for governance ritual + community coordination (no economic control).</p>
+            <div class="badgeRow">
+              <span class="badge">No fund routing</span>
+              <span class="badge">Signed posts</span>
+              <span class="badge">Public audit trail</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOC -->
+    <section class="section" id="loc">
+      <div class="wrap">
+        <h2 class="h2">LoC — Letters of Credit</h2>
+        <p class="muted">
+          LoC is a monthly batch instrument issued <strong>only</strong> from realized Vault profits.
+          It is not a stablecoin and has no peg defense.
+        </p>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Issuance</h3>
+            <ul class="list">
+              <li>Monthly batch issuance from realized profits only</li>
+              <li>Stakers receive at 100% face value</li>
+              <li>Non-stakers can preorder at 110% (premium routes to Vault)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Redemption</h3>
+            <ul class="list">
+              <li>Redeem early at 90% (fail-soft + protects long-term zone)</li>
+              <li>Redeem at 100% after 12 months</li>
+              <li>Secondary market trades pay 1% fee in AF to Vault</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>Invariant:</strong> LoC issuance ≤ realized profits. If profits are low, issuance is low (or pauses).
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <h2 class="h2">FAQ</h2>
+
+        <div class="faq">
+          <details>
+            <summary>Is this financial advice?</summary>
+            <p>No. This is informational software documentation. Nothing here is a recommendation.</p>
+          </details>
+
+          <details>
+            <summary>Is AF a stablecoin?</summary>
+            <p>No. There is no peg and no peg defense mechanism. LoC is a time-based credit instrument issued from realized profits only.</p>
+          </details>
+
+          <details>
+            <summary>Can governance redirect funds?</summary>
+            <p>No. Core economic routing is immutable: 100% of revenues route to the Vault. Governance cannot change economic flows.</p>
+          </details>
+
+          <details>
+            <summary>What happens if adoption is low?</summary>
+            <p>Fail-soft: issuance slows or pauses. The system is designed to survive low activity without forced insolvency behaviors.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <h2 class="h2">Contact</h2>
+        <p class="muted">
+          Want build updates? Drop an email. We’ll share release notes and public audit milestones.
+        </p>
+
+        <div class="contactCard">
+          <div>
+            <div class="k">Email</div>
+            <a class="link" href="mailto:contact@aurumfides.com">contact@aurumfides.com</a>
+            <div class="k" style="margin-top:14px;">Social</div>
+            <div class="socialRow">
+              <a class="link" href="#" target="_blank" rel="noreferrer">X / @aurumfidesVault</a>
+              <a class="link" href="#" target="_blank" rel="noreferrer">Telegram</a>
+            </div>
+          </div>
+
+          <form class="miniForm" onsubmit="return false;">
+            <label>
+              <span class="k">Get notified (placeholder)</span>
+              <input id="email" type="email" placeholder="you@domain.com" autocomplete="email" />
+            </label>
+            <button class="btn primary" id="notifyBtn">Notify me</button>
+            <p class="small muted">This is a placeholder button (no data stored). We can wire this later.</p>
+          </form>
+        </div>
+
+        <footer class="footer">
+          <div>© <span id="year"></span> Aurum Fides</div>
+          <div class="footerRight">
+            <a class="link" href="#top">Back to top</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <a href="#architecture">Architecture</a>
+    <a href="#modules">Modules</a>
+    <a href="#loc">LoC</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
